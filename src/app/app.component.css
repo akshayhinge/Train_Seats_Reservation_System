@@ -1,0 +1,9 @@
+.seatsWrapper{
+width: fit-content;
+margin: auto;
+}
+.seatBox{
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: .5rem;
+}

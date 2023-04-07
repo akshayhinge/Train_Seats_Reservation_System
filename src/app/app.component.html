@@ -1,0 +1,71 @@
+<div class="m-3">
+  <div class="seatsWrapper card">
+    <tbody>
+      <tr *ngFor="let data of seats">
+        <td *ngFor="let cell of data">
+          <div
+            class="seatBox"
+            [ngClass]="
+              cell != 0
+                ? 'bg-danger border border-danger'
+                : 'bg-success border border-success'
+            "
+          ></div>
+        </td>
+      </tr>
+      <tr class="">
+        <td *ngFor="let i of lastRowSeats">
+          <div
+            class="seatBox"
+            [ngClass]="
+              i != 0
+                ? 'bg-danger border border-danger'
+                : 'bg-success border border-success'
+            "
+          ></div>
+        </td>
+      </tr>
+    </tbody>
+  </div>
+  <div class="inputWrapper mt-3 w-50 m-auto">
+    <input
+      type="number"
+      name="seats"
+      class="form-control"
+      max="7"
+      min="1"
+      #numSeats
+      placeholder="Number Of Seats"
+    />
+    <button
+      class="btn btn-primary w-100 mt-3"
+      (click)="reserveSeats(numSeats.value)"
+    >
+      Book seat
+    </button>
+  </div>
+</div>
+<div
+  class="
+    card
+    position-absolute
+    top-50
+    start-50
+    translate-middle
+    shadow
+    bg-body
+    rounded
+  "
+  style="width: 18rem;"
+  *ngIf="msg.length"
+>
+  <div class="card-body">
+    <h5 class="card-title">{{ title }}</h5>
+    <hr />
+    <p class="card-text">{{ msg }}</p>
+    <hr />
+    <button (click)="resetMSG()" class="btn btn-primary float-end shadow">
+      Okay
+    </button>
+  </div>
+</div>
